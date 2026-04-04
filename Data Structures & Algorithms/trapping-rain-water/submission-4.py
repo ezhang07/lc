@@ -1,0 +1,29 @@
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        # can make an array same size of height, each index corresponds to the rain thatcan be trapped
+        # water can be trapped in a position if neighbouring are bigger than itself
+        # is this a sliding window problem?
+
+        rain = 0
+
+        for i in range(len(height)):
+            l = i
+            r = i
+            greatestL = 0
+            greatestR = 0
+
+            while l >= 0:
+                greatestL = max(greatestL, height[l])
+                l-=1
+
+            while r <= len(height)-1:
+                greatestR = max(greatestR, height[r])
+                r+=1
+
+            rain += min(greatestL,greatestR) - height[i]
+        
+        return rain
+
+            
+            
+
