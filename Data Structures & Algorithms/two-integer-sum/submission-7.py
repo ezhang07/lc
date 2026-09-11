@@ -1,14 +1,13 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        seenMap = {} # value: index
+        seen_map = {} # value : index
 
         for i, n in enumerate(nums):
-            diff = target - n
+            difference = target - n
 
-            if diff in seenMap:
-                # return the indices of two numbers
-                return [i, seenMap[diff]]
+            if difference in seen_map:
+                return [seen_map[difference], i]
+            else:
+                seen_map[n] = i
             
-            seenMap[n] = i
-        
-        
+        return None
