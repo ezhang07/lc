@@ -10,4 +10,5 @@ class Solution:
             freqMapS[s[i]] = freqMapS.get(s[i], 0) + 1
             freqMapT[t[i]] = freqMapT.get(t[i], 0) + 1
         
-        return freqMapS == freqMapT
+        return freqMapS == freqMapT   
+        
