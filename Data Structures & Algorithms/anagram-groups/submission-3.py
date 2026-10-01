@@ -1,15 +1,18 @@
-class Solution(object):
-    def groupAnagrams(self, strs):
-        freqTable = defaultdict(list) # freq array: list of anagrams
+class Solution: 
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        anagram_map = defaultdict(list)
 
-        for i in range(len(strs)):
-            freqArray = [0]*26
-            for c in strs[i]:
-                freqArray[ord(c) - ord('a')] += 1
+        for s in strs:
+            char_dist = [0] * 26
+            for c in s:
+                i = ord(c) - ord('a')
+                char_dist[i] += 1
             
-            freqTable[tuple(freqArray)].append(strs[i])
-            
-        return list(freqTable.values())
-            
-
+            anagram_map[tuple(char_dist)].append(s)
         
+        return list(anagram_map.values())
+        
+
+
+
+
